@@ -3,13 +3,14 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: #333;
+  background-color: rgb(85, 190, 185);
 }
 .login-box {
   width: 1000px;
   height: 474.38px;
-  border-radius: 8px;
+  border-radius: 30px;
   display: flex;
+  overflow: hidden;
 }
 
 .login-box img {
@@ -79,7 +80,7 @@
   font-weight: 500;
   font-size: 14px;
   border: 0;
-  background-color: #ffc200;
+  background-color: #48dfe4;
 }
 .login-btn:hover,
 .login-btn:focus {
