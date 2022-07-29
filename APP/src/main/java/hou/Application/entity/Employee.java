@@ -25,11 +25,11 @@ public class Employee implements Serializable {
     private String idNumber; //使用驼峰命名法，驼峰命名法已在application.yml中开启
     private Integer status;
     private LocalDateTime createTime; //驼峰命名法
-    private LocalDateTime updataTime; //驼峰命名法
+    private LocalDateTime updateTime; //驼峰命名法
 
     @TableField(fill = FieldFill.INSERT)
     private Long createUser;
 
     @TableField(fill = FieldFill.INSERT)
-    private Long updataUser;
+    private Long updateUser;
 }
