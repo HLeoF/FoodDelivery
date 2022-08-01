@@ -1,0 +1,8 @@
+package hou.Application.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import hou.Application.entity.Category;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface CategoryMapper extends BaseMapper<Category> {}

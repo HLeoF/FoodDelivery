@@ -1,6 +1,7 @@
 package hou.Application.filter;
 
 import com.alibaba.fastjson.JSON;
+import hou.Application.common.BaseContext;
 import hou.Application.common.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.AntPathMatcher;
@@ -53,6 +54,11 @@ public class LoginCheckFilter implements Filter {
         //4.判断登录状态，如果已经登录，直接放行
         if(request.getSession().getAttribute("employee") != null){
             log.info("用户已登录，用户id: {}",request.getSession().getAttribute("employee"));
+
+            //Threadlocal get Id
+            Long empId = (Long) request.getSession().getAttribute("employee");
+            BaseContext.setCurrentId(empId);
+
             filterChain.doFilter(request, response);
             return;
         }

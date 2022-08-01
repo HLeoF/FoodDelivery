@@ -84,13 +84,13 @@ public class EmployeeController {
 
         //设置初始密码，再进行md5加密处理
         employee.setPassword(DigestUtils.md5DigestAsHex("123456".getBytes()));
-        employee.setCreateTime(LocalDateTime.now());
-        employee.setUpdateTime(LocalDateTime.now());
+        //employee.setCreateTime(LocalDateTime.now());
+        //employee.setUpdateTime(LocalDateTime.now());
 
         //获得当前登录用户的ID
-        Long empID = (Long) request.getSession().getAttribute("employee");
-        employee.setCreateUser(empID);
-        employee.setUpdateUser(empID);
+        //Long empID = (Long) request.getSession().getAttribute("employee");
+        //employee.setCreateUser(empID);
+        //employee.setUpdateUser(empID);
 
         employeeService.save(employee);
         return R.success("新增员工已成功");
@@ -108,7 +108,7 @@ public class EmployeeController {
         log.info("page = {}, pageSize = {}, name = {}",page,pageSize,name);
 
         //分页构造
-        Page pageInfo = new Page(page, pageSize);
+        Page<Employee> pageInfo = new Page(page, pageSize);
 
         //条件构造,动态封装过滤条件，For example, name
         LambdaQueryWrapper<Employee> wrapper = new LambdaQueryWrapper();
@@ -132,9 +132,13 @@ public class EmployeeController {
     @PutMapping
     public R<String> update(HttpServletRequest request,@RequestBody Employee employee){
         log.info(employee.toString());
-        employee.setUpdateTime(LocalDateTime.now());
-        Long empID = (Long) request.getSession().getAttribute("employee");
-        employee.setUpdateUser(empID);
+        //employee.setUpdateTime(LocalDateTime.now());
+        //Long empID = (Long) request.getSession().getAttribute("employee");
+        //employee.setUpdateUser(empID);
+
+        long id = Thread.currentThread().getId();
+        log.info("Current Thread: {}", id);
+
         employeeService.updateById(employee);
         return R.success("员工修改信息成功");
     }

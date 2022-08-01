@@ -27,7 +27,7 @@ public class GlobalExceptionHandler {
         log.info(e.getMessage());
         if(e.getMessage().contains("Duplicate entry")){
             String [] s = e.getMessage().split(" ");
-            String msg = "添加失败: 用户名：" + s[2] +"已存在";
+            String msg = "添加失败: " + s[2] +"已存在";
             return R.error(msg);
         }
         return R.error("添加失败：未知错误");
