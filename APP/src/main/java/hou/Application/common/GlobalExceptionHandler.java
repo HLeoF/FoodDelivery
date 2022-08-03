@@ -32,4 +32,15 @@ public class GlobalExceptionHandler {
         }
         return R.error("添加失败：未知错误");
     }
+
+    /**
+     * 进行 CustomeException 异常处理
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(CustomException.class)
+    public R<String> exceptionHandler(CustomException e){
+        log.info(e.getMessage());
+        return R.error(e.getMessage());
+    }
 }
