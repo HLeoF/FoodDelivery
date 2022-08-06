@@ -108,7 +108,7 @@ public class EmployeeController {
         log.info("page = {}, pageSize = {}, name = {}",page,pageSize,name);
 
         //分页构造
-        Page<Employee> pageInfo = new Page(page, pageSize);
+        Page<Employee> pageInfo = new Page<>(page, pageSize);
 
         //条件构造,动态封装过滤条件，For example, name
         LambdaQueryWrapper<Employee> wrapper = new LambdaQueryWrapper();
